@@ -351,6 +351,7 @@ PanelWindow {
       id: queryText
       anchors.centerIn: parent
       text: "/ " + view.query
+      textFormat: Text.PlainText
       color: "white"
       font.family: view.fontFamily
       font.pixelSize: Style.font.subtitle

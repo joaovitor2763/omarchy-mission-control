@@ -102,6 +102,7 @@ Item {
     anchors.top: parent.bottom
     anchors.topMargin: 8
     text: thumb.workspace.name
+    textFormat: Text.PlainText
     color: "white"
     opacity: thumb.active ? 1 : 0.75
     font.family: thumb.monitorView.fontFamily

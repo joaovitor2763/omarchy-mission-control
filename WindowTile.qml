@@ -150,6 +150,7 @@ Item {
       anchors.centerIn: parent
       width: Math.min(implicitWidth, parent.width - 24)
       text: tile.toplevel ? tile.toplevel.title : ""
+      textFormat: Text.PlainText
       elide: Text.ElideRight
       color: "white"
       font.family: tile.monitorView.fontFamily
