@@ -40,7 +40,10 @@ Omarchy's three-finger horizontal swipe already changes workspace, so vertical s
 
 ```bash
 omarchy plugin update io.github.joaovitor2763.mission-control
+omarchy-restart-shell
 ```
+
+The shell caches plugin QML, so restart it to load the new version. See the [changelog](CHANGELOG.md) for what changed.
 
 ## Remove
 
