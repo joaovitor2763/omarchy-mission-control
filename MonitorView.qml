@@ -140,7 +140,6 @@ PanelWindow {
 
   function switchTo(workspace) {
     controller.focusWorkspace(workspace)
-    controller.dismiss()
   }
 
   function moveWindow(t, target) {

@@ -73,12 +73,28 @@ Item {
     dispatch("window.close({ window = 'address:0x" + address + "' })")
   }
 
+  // Hyprland refocuses the previous window when the overlay gives up
+  // keyboard focus, which undoes a workspace switch made while open. So
+  // close first and switch once the focus has been released.
+  property string pendingWorkspace: ""
+
   function focusWorkspace(workspace) {
-    dispatch("focus({ workspace = '" + workspace + "' })")
+    root.pendingWorkspace = String(workspace)
+    root.dismiss()
+    workspaceSwitch.restart()
   }
 
   function moveWindow(address, workspace) {
     dispatch("window.move({ workspace = '" + workspace + "', follow = false, window = 'address:0x" + address + "' })")
+  }
+
+  Timer {
+    id: workspaceSwitch
+    interval: 50
+    onTriggered: {
+      root.dispatch("focus({ workspace = '" + root.pendingWorkspace + "' })")
+      root.pendingWorkspace = ""
+    }
   }
 
   Timer {
